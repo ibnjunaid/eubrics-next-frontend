@@ -5,7 +5,7 @@ export interface Behaviour {
 }
 
 export class BehaviourService{
-    private static readonly backend: string = 'http://localhost:4000';
+    private static readonly backend: string = 'https://eubrics-project.herokuapp.com/';
 
     public static async getBehaviours(token: string): Promise<Behaviour[]> {
         const response = await fetch(`${BehaviourService.backend}/behaviour/all`, {

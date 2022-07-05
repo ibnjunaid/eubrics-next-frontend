@@ -1,5 +1,5 @@
 export class AuthService {
-    private static readonly backend: string = 'http://localhost:4000';
+    private static readonly backend: string = 'https://eubrics-project.herokuapp.com/';
 
     public static async signUp(username: string, password: string) {
         const response = await fetch(`${AuthService.backend}/auth/signup`, {
