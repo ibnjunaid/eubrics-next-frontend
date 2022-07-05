@@ -1,5 +1,5 @@
 export class TodoService{
-    private static readonly backend: string = 'https://eubrics-project.herokuapp.com/';
+    private static readonly backend: string = 'https://eubrics-project.herokuapp.com';
 
     public static async listAllTodos(token: string) {
         const response = await fetch(`${TodoService.backend}/todo/list`, {

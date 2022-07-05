@@ -5,15 +5,13 @@ export interface Behaviour {
 }
 
 export class BehaviourService{
-    private static readonly backend: string = 'https://eubrics-project.herokuapp.com/';
+    private static readonly backend: string = 'https://eubrics-project.herokuapp.com';
 
-    public static async getBehaviours(token: string): Promise<Behaviour[]> {
+    public static async getBehaviours(): Promise<Behaviour[]> {
         const response = await fetch(`${BehaviourService.backend}/behaviour/all`, {
             method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
         });
-        return await response.json();
+        console.log(response);
+        return (await response.json() || []);
     }
 }
