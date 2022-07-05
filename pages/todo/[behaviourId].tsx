@@ -17,6 +17,13 @@ export default function Todo() {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
     setTodos([...filteredTodos]);
   }
+
+  useEffect(() => {
+    (async () => {
+      const todos = await TodoService.listAllTodos(context?.userCred?.access_token!);
+      setTodos([...todos]);
+    })()
+  },[])
   
   return (
     <>

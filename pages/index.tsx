@@ -7,7 +7,6 @@ export interface BehaviourProps {
 }
 
 export default function Behaviours(props: BehaviourProps) {
-  console.log(props);
   return (
     <>
       <Navbar></Navbar>
