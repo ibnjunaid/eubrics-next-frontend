@@ -13,7 +13,6 @@ export default function Behaviours(props: BehaviourProps) {
       <Navbar></Navbar>
       <p className='text-xl p-10 text-white bg-orange-500'>Choose any behaviour to proceed</p>
       <div className="grid gap-10 grid-cols-3 p-20 ">
-        hello
         {props.behaviours.map((value: Behaviour) => (
           <BehaviourComponent key={value.id} {...value} />
         ))}
