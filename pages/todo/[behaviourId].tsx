@@ -17,12 +17,16 @@ export default function Todo() {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
     setTodos([...filteredTodos]);
   }
+  console.log(router);
 
   useEffect(() => {
     (async () => {
-      const todos = await TodoService.listAllTodos(context?.userCred?.access_token!);
+      const todos = await TodoService.listAllTodos(context?.userCred?.access_token!, Number(router.query.behaviourId));
       setTodos([...todos]);
     })()
+    return () => {
+      setTodos([])
+    };
   },[])
   
   return (
@@ -50,7 +54,7 @@ export default function Todo() {
                 console.log(context)
                 if(context?.userCred?.access_token && context?.selectedBehaviour?.behaviourId){
                   TodoService
-                      .addTodo(context?.userCred?.access_token, message, context?.selectedBehaviour?.behaviourId)
+                      .addTodo(context?.userCred?.access_token, message, Number(router.query.behaviourId))
                       .then((todo: TodoInterface) => {
                         setTodos([...todos, todo])
                       });

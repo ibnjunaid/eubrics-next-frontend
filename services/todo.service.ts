@@ -3,8 +3,8 @@ import { DB_SERVICES } from './CONSTANTS';
 export class TodoService{
     private static readonly backend: string = DB_SERVICES;
 
-    public static async listAllTodos(token: string) {
-        const response = await fetch(`${TodoService.backend}/todo/list`, {
+    public static async listAllTodos(token: string, behaviourId: number) {
+        const response = await fetch(`${TodoService.backend}/todo/list/${behaviourId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
